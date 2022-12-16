@@ -1,0 +1,65 @@
+.main {
+  width: 550px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: white;
+  border: 1px solid lightgrey;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+}
+
+.logo {
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+
+.logo_2Auth {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.hello_label {
+  visibility: visible;
+  opacity: 0.3;
+  transition: 2s;
+}
+
+.info_label {
+  margin-bottom: 20px;
+}
+
+#login {
+  width: 100%;
+  background-color: skyblue;
+  border-color: transparent;
+  margin-top: 10px;
+  color: white;
+}
+
+#login:hover {
+  box-shadow: inset -0.3rem -0.1rem 1.4rem #d4f4fa,
+    inset 0.3rem 0.4rem 0.8rem #d4f4fa;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+
+.account {
+  display: block;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  margin-right: 200px;
+  width: 100%;
+  height: 50px;
+}
+
+#alert {
+  border-color: transparent;
+}

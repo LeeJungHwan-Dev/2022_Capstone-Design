@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/cssModule.iml" filepath="$PROJECT_DIR$/cssModule.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ipsControl.iml" filepath="$PROJECT_DIR$/ipsControl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaScriptModule.iml" filepath="$PROJECT_DIR$/javaScriptModule.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pageModule.iml" filepath="$PROJECT_DIR$/pageModule.iml" />
+    </modules>
+  </component>
+</project>

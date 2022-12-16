@@ -1,0 +1,12 @@
+.tables{
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    overflow: auto;
+      
+  }
+  .item {
+    flex: 1;
+    margin-top: 20px;
+  
+    }

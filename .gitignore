@@ -102,3 +102,16 @@ dist
 
 # TernJS port file
 .tern-port
+
+# node_commender
+node_commender/update.apk
+node_commender/node_modules
+node_commender/serviceAccount.json
+node_commender/app_downloads/cloud-server-da021-firebase-adminsdk-fvhfu-cd494032db.json
+
+# ipsControl
+ipsControl/cloud-server-da021-firebase-adminsdk-fvhfu-08ff7cba23.json
+ipsControl/node_modules
+
+#ips_2auth
+ips_2auth/app/google-services.json

@@ -1,0 +1,25 @@
+<head>
+  <meta charset="UTF-8" />
+  <title>로그인</title>
+  <link href="css/login.css" rel="stylesheet" type="text/css" />
+  
+</head>
+<body background="res/apt_back-001.png">
+  <div class="main">
+    <h1 class="logo" id="admin">관리자 로그인</h1>
+    <form action="/" method="post">
+      <div class="container">
+        <input type="text" placeholder="ID" id="id" class="account" name="id" />
+        <input
+          type="password" placeholder="Password" id="pw" class="account" name="pw"
+        />
+        <div class="hello_label" id="hello_label">
+          관리자님 환영합니다.
+        </div>
+        <div class="result"></div>
+        <input type="submit" id="login" class="account" value="로그인"/>
+      </div>
+    </form>
+  </div>
+</body>
+<footer></footer>
