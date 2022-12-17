@@ -55,10 +55,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         Vibrator vibrator = (Vibrator)getSystemService(VIBRATOR_SERVICE);
         vibrator.vibrate(new long[]{300,300,300,300},-1);
 
-        Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-        Ringtone rt = RingtoneManager.getRingtone(getApplicationContext(),notification);
-        rt.play();
-
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "우리집 지키미")
                 .setSmallIcon(R.mipmap.ic_launcher_round)
                 .setContentTitle(title)

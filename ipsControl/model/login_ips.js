@@ -117,17 +117,23 @@ async function resetDB(id){
   const file_log = {};
   const ip_rule_tables = {};
   const process_rule_tables = {};
+  const change_tables = {};
 
   arr_1['0'] = 0;
   file_log['YYYY. MM. DD. hh:mm:ss'] = '예시 로그입니다.';
   ip_rule_tables['0'] = 'Any/Any/tcp/port/Allow 예시입니다. 사용시 지워주세요.';
   process_rule_tables['1'] = '1/icmp2/allow 예시입니다. 사용시 지워주세요.';
+  change_tables['ip'] = '0';
+  change_tables['process'] = '0';
+  change_tables['update'] = '0';
+
 
   const res = await userRef.set({
     arr_1,
     file_log,
     ip_rule_tables,
     process_rule_tables,
+    change_tables,
     first : false
   }, { merge: true });
 }

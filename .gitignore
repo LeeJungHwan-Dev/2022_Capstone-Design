@@ -115,3 +115,5 @@ ipsControl/node_modules
 
 #ips_2auth
 ips_2auth/app/google-services.json
+
+.DS_Store

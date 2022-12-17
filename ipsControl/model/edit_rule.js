@@ -1,5 +1,6 @@
 const { FieldValue } = require("@google-cloud/firestore");
 const firestore = require("firebase-admin/firestore");
+const updateNoti = require("./noti_model");
 const db = firestore.getFirestore();
 
 
@@ -10,6 +11,7 @@ async function add_IP_rule(id,rule_json){
     let ip = rule_json.start_ip +"/" +rule_json.end_ip +"/"+rule_json.port_number+"/"+rule_json.ip_protocal+"/"+rule_json.ip_policy;
 
     ip_rule_tables[rule_json.policy_number] = ip;
+    updateNoti.updateNoti(id,1);
 
     const res = await ipRef.set({
         ip_rule_tables
@@ -34,7 +36,6 @@ async function del_ip_rules(id,rule_number){
 
     ip_rule_tables[rule_number] = FieldValue.delete();
     
-    
     const res = await User_rules.set({
         ip_rule_tables
       }, { merge: true });
@@ -49,7 +50,7 @@ async function add_process_rule(id,rule_json){
   let process = rule_json.policy_num +"/" +rule_json.process_name +"/"+ rule_json.process_policy;
 
   process_rule_tables[rule_json.policy_num] = process;
-
+  updateNoti.updateNoti(id,2);
   const res = await processRef.set({
       process_rule_tables
       }, { merge: true });

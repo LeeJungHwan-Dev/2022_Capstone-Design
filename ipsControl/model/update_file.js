@@ -1,6 +1,7 @@
 const firestore = require("firebase-admin/firestore");
 const db = firestore.getFirestore();
 const admin = require('firebase-admin');
+const updateNoti = require('./noti_model');
 const uuid = require('uuid-v4');
 
 async function uploadFile(id,file_name) {
@@ -25,6 +26,7 @@ async function uploadFile(id,file_name) {
     });
 
     await add_file(id,file_name);
+    updateNoti.updateNoti(id,3);
 
     return true;
 
