@@ -42,8 +42,7 @@ async function getIp (){
 
                         shell.exec('sudo ebtables -A FORWARD -p arp --arp-ip-dst '+ip[0]+' -j DROP');
             }
-            shell.exec('sudo ufw enable');
-            shell.exec('y');
+
         }
 }
 
