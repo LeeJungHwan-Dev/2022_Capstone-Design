@@ -28,8 +28,9 @@ const getLog = function () {
     fs.readFile('/var/log/ufw.log', 'utf8', (err, data) => {
       if (err) {
         console.error(err);
+      }else{
+        return add_log(data.toString().split('\n'));
       }
-      return add_log(data.toString().split('\n'));
     });
   };
 
