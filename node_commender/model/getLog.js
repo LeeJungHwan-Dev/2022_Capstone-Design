@@ -2,7 +2,7 @@ const firestore = require("firebase-admin/firestore");
 
 async function add_log(data){
 
-  if(data = undefined){
+  if(data != undefined){
       const db = firestore.getFirestore(data);
 
 
