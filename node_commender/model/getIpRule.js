@@ -26,9 +26,6 @@ async function getIp (){
         } else {
             let json = JSON.stringify(doc.data().ip_rule_tables);
             let item = JSON.parse(json);
-
-            shell.exec('sudo ufw disable');
-            shell.exec('sudo ebtables -F');
             
             // ip룰 작성
             for(ruleNumber in item){

@@ -5,8 +5,6 @@ const firestore = require("firebase-admin/firestore");
 const serviceAccount = require('./serviceAccount.json');
 const androidUpdate = require('./model/androidUpdate');
 const checkVirus = require('./model/checkVirus');
-const shell = require('shelljs');
-const express = require('express');
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
