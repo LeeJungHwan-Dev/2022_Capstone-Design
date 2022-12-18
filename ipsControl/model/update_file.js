@@ -1,14 +1,14 @@
 const firestore = require("firebase-admin/firestore");
 const db = firestore.getFirestore();
 const admin = require('firebase-admin');
-const updateNoti = require('./noti_model');
+const name_update = require('./update_file_name');
 const uuid = require('uuid-v4');
 
 async function uploadFile(id,file_name) {
 
     
     const bucket   = admin.storage().bucket();
-    const filename = "upload/"+file_name;
+    const filename = "./upload/"+file_name;
 
     const metadata = {
       metadata: {
@@ -26,7 +26,8 @@ async function uploadFile(id,file_name) {
     });
 
     await add_file(id,file_name);
-    updateNoti.updateNoti(id,3);
+    name_update.name_update(id,file_name);
+
 
     return true;
 

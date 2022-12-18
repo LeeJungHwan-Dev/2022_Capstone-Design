@@ -1,4 +1,3 @@
-const { FieldValue } = require("@google-cloud/firestore");
 const firestore = require("firebase-admin/firestore");
 const db = firestore.getFirestore();
 
