@@ -26,7 +26,7 @@ async function start_process (){
                 shell.exec('sudo chmod 770'+' downloads/'+item.process_name);
                 shell.exec('echo 적용 완료!');
             }else if(item.process_status === "Allow"){
-                shell.exec('echo 적용 완료!');
+                shell.exec('echo 적용 완료!~');
             }
         
         }
