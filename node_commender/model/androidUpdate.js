@@ -16,7 +16,7 @@ async function updateAndroid(){
         let item = JSON.parse(json);
 
         console.log('앱 업데이트 모듈 시작');
-        shell.exec('adb install -r /Users/lee/Desktop/node_commender/' + item);
+        shell.exec('adb install -r /node_commender/downloads/' + item);
     
 
         console.log(file_doc.data().filename);

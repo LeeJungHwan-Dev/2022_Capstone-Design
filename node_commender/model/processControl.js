@@ -22,11 +22,11 @@ async function start_process (){
                 if(shell.exec('sudo chown no-internet:no-internet'+' downloads/'+item.process_name).code !== 0) {
                     shell.echo('Error: command failed')
                 }
-
                 shell.exec('sudo chmod 770'+' downloads/'+item.process_name);
                 shell.exec('echo 적용 완료!');
             }else if(item.process_status === "Allow"){
-                shell.exec('echo 적용 완료!~');
+                shell.exec('echo Allow 적용 완료!');
+                shell.exec('sudo ')
             }
         
         }
