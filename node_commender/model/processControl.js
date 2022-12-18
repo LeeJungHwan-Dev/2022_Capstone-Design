@@ -23,7 +23,7 @@ async function start_process (){
             }
 
             shell.exec('sudo chmod 770'+' downloads/'+item);
-            shell.exec('cd ..');
+            shell.exec('echo 적용 완료!');
         
         }
 }
