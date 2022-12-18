@@ -47,7 +47,7 @@ async function chekc(){
           await checkVirus.checkVirus();
           update_status = '0';
         }else if(item.process === '1'){
-          startProcess.process_start();
+          await startProcess.process_start();
           update_process = '0';
         }
 
