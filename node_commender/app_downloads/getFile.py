@@ -1,9 +1,17 @@
 import pyrebase
+import sys
+import os
 
-def checkApp():
+def checkDir():
+    if not os.path.exists('./node_commender/downloads'): 
+        os.makedirs('./node_commender/downloads')
+
+def checkApp(name):
+    
+    checkDir()
+
     print('앱 업데이트 작동')
-    storage.child(path_on_cloud).download("","update.apk")
-    print("update_ok")
+    storage.child(name).download('',"./downloads/"+name)
 
 config ={
     "apiKey": "AIzaSyAd8nQ9-NpIkqCLqGJKIaMEjWXOzlwN1no",
@@ -19,9 +27,6 @@ config ={
 firebase = pyrebase.initialize_app(config)
 storage = firebase.storage()
 
-path_on_cloud = "test.apk"
-path_local = "code.png"
+checkApp(sys.argv[1])
 
 print('업데이트 모듈 초기화 완료')
-
-checkApp()

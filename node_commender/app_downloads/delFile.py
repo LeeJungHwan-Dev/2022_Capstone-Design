@@ -1,9 +1,9 @@
 import pyrebase
+import sys
 
-def checkApp():
+def checkApp(filename):
     print("업데이트 삭제 모듈 작동")
-    storage.delete("test.apk","")
-    print("del_ok")
+    storage.delete(filename,"")
 
 config ={
     "apiKey": "AIzaSyAd8nQ9-NpIkqCLqGJKIaMEjWXOzlwN1no",
@@ -19,9 +19,4 @@ config ={
 firebase = pyrebase.initialize_app(config)
 storage = firebase.storage()
 
-path_on_cloud = "test.apk"
-path_local = "code.png"
-
-print('업데이트 파일 서버에서 삭제 완료')
-
-checkApp()
+checkApp(sys.argv[1])

@@ -1,16 +1,43 @@
+const firestore = require("firebase-admin/firestore");
 const shell = require('shelljs');
 const spawn = require('child_process').spawn;
+const fs = require('fs');
 
-function updateAndroid(){
-    shell.exec('adb install -r /Users/lee/Desktop/node_commender/update.apk');
-    console.log('ok');
+async function updateAndroid(){
+    const db = firestore.getFirestore();
 
-    const result = spawn('python',['app_downloads/delFile.py'],);
+    const fileRef = db.collection('User_List').doc('admin');
+    const file_doc = await fileRef.get();
+    if (!file_doc.exists) {
+        console.log('파일 변동 없음');
+    } else {
+        let json = JSON.stringify(file_doc.data().filename);
+        let item = JSON.parse(json);
 
-    result.stdout.on('data',(result1)=>{
-	console.log('업데이트 서버 앱 업데이트 삭제 완료.');
-	console.log(result1.toString())
-    })
+        console.log('앱 업데이트 모듈 시작');
+        shell.exec('adb install -r /Users/lee/Desktop/node_commender/' + item);
+    
+        const result = spawn('python',['app_downloads/delFile.py',item],);
+        result.stdout.on('data',(result1)=>{
+        })
+
+        try {
+
+            //동기 방식으로 파일 삭제
+            fs.unlinkSync("../node_commender/downloads/"+item)
+        
+        } catch (err) {
+        
+            if(err.code == 'ENOENT'){
+                console.log("파일 삭제 Error 발생");
+            }
+        }
+
+        console.log('업데이트 파일 삭제 완료.');
+
+
+    }
+
 }
 
 
