@@ -18,11 +18,13 @@ async function start_process (){
             let json = JSON.stringify(doc.data().process_name);
             let item = JSON.parse(json);
             
+            shell.exec('cd /home/raspi/2022_Capstone-Design/node_commender/downloads');
             if(shell.exec('sudo chown no-internet:no-internet'+' '+item).code !== 0) {
                 shell.echo('Error: command failed')
             }
 
             shell.exec('sudo chmod 770'+' '+item);
+            shell.exec('cd ..');
         
         }
 }
