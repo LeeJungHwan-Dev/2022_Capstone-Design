@@ -7,11 +7,10 @@ def checkDir():
         os.makedirs('./downloads')
 
 def checkApp(name):
-    
     checkDir()
 
     print('앱 업데이트 작동' + name)
-    print(storage.child(name).download('',name))
+    print(storage.child(name).download('','1.png'))
 
 config ={
     "apiKey": "AIzaSyAd8nQ9-NpIkqCLqGJKIaMEjWXOzlwN1no",
@@ -27,6 +26,6 @@ config ={
 firebase = pyrebase.initialize_app(config)
 storage = firebase.storage()
 
-checkApp(sys.argv[1])
-
+#checkApp(sys.argv[1])
+checkApp('1.png')
 print('업데이트 모듈 초기화 완료')
