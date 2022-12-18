@@ -287,9 +287,8 @@ app.post("/main/update_process",async (req,res)=>{
   if(req.session.ids === undefined || req.session.auth !== 'ok'){
     res.send("<script>alert('올바르지 않은 접근입니다.'); document.location.href='/'</script>");
   }else{
-    console.log(req.body.process_name);
-    startProcess.startProcess(req.session.ids,req.body.process_name);
-    res.send("<script>alert('프로세스 실행명령 전달 완료.  \\n주의! 파일이 존재하지 않을 경우 실행되지 않습니다.'); document.location.href='/main/process_main'</script>" );
+      startProcess.startProcess(req.session.ids,req.body.process_name,req.body.process_status);
+      res.send("<script>alert('프로세스 실행명령 전달 완료.  \\n주의! 파일이 존재하지 않을 경우 실행되지 않습니다.'); document.location.href='/main/process_main'</script>" );
   }
 })
 

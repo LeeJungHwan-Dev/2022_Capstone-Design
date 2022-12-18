@@ -15,15 +15,19 @@ async function start_process (){
         if (!doc.exists) {
         console.log('No such document!');
         } else {
-            let json = JSON.stringify(doc.data().process_name);
+            let json = JSON.stringify(doc.data());
             let item = JSON.parse(json);
             
-            if(shell.exec('sudo chown no-internet:no-internet'+' downloads/'+item).code !== 0) {
-                shell.echo('Error: command failed')
-            }
+            if(item.process_status === 'Deny'){
+                if(shell.exec('sudo chown no-internet:no-internet'+' downloads/'+item.process_name).code !== 0) {
+                    shell.echo('Error: command failed')
+                }
 
-            shell.exec('sudo chmod 770'+' downloads/'+item);
-            shell.exec('echo 적용 완료!');
+                shell.exec('sudo chmod 770'+' downloads/'+item.process_name);
+                shell.exec('echo 적용 완료!');
+            }else if(item.process_status === "Allow"){
+                shell.exec('echo 적용 완료!');
+            }
         
         }
 }
