@@ -22,6 +22,8 @@ async function getIp (){
             let json = JSON.stringify(doc.data().ip_rule_tables);
             let item = JSON.parse(json);
 
+            shell.exec('sudo ufw reset');
+            shell.exec('Y');
             shell.exec('sudo ebtables -F');
             
             // ip룰 작성
