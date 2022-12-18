@@ -25,6 +25,7 @@ async function updateAndroid(){
 
         result1.stdout.on('data',(result1)=>{
             console.log('서버 호출 완료.');
+            console.log(result1);
             })
 
 
