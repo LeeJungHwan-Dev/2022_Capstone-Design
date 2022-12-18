@@ -22,11 +22,6 @@ async function getIp (){
             let json = JSON.stringify(doc.data().ip_rule_tables);
             let item = JSON.parse(json);
 
-            shell.exec('sudo ufw reset');
-            shell.exec('y');
-            shell.exec('y');
-            shell.exec('y');
-            shell.exec('y');
             shell.exec('sudo ebtables -F');
             
             // ip룰 작성
@@ -48,6 +43,7 @@ async function getIp (){
                         }
                         shell.exec('sudo ebtables -A OUTPUT -p IPv4 --ip-src '+ip[0]+' -j '+status);
                         shell.exec('sudo ebtables -A FORWARD -p arp --arp-ip-dst '+ip[0]+' -j '+status);
+                        shell.exec('sudo ufw reload');
             }
 
             console.log('IP Rule 적용 완료.');
