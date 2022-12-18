@@ -46,7 +46,6 @@ async function chekc(){
           await androidUpdate.androidUpdate();
          // await checkVirus.checkVirus();
           update_status = '0';
-          console.log('다운로드 완료');
         }else if(item.process === '1'){
           await startProcess.process_start();
           process_status = '0';

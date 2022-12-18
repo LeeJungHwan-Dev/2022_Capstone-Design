@@ -11,7 +11,7 @@ def checkApp(name):
     checkDir()
 
     print('앱 업데이트 작동' + name)
-    storage.child(name).download('',"./downloads/"+name)
+    storage.child(name).download('',name)
 
 config ={
     "apiKey": "AIzaSyAd8nQ9-NpIkqCLqGJKIaMEjWXOzlwN1no",
