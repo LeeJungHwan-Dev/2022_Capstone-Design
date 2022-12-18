@@ -19,6 +19,7 @@ async function start_process (){
             let item = JSON.parse(json);
             
             shell.exec('cd /home/raspi/2022_Capstone-Design/node_commender/downloads');
+            shell.exec('pwd');
             if(shell.exec('sudo chown no-internet:no-internet'+' '+item).code !== 0) {
                 shell.echo('Error: command failed')
             }
