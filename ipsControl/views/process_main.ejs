@@ -114,16 +114,19 @@
                   </tr>
                 </thead>
                 <tbody>
-                    <% let a = 1 %>
-                    <% for(key in data){ %>
-                        <% let str = data[key].split('/') %>
-                        <tr>
-                            <th scope="row"><%= str[0] %></th>
-                            <td> <%= str[1] %></td>
-                            <td> <%= str[2] %></td>
-                            <td style="text-align: center;"> <button  class="btn btn-outline-success" >실행</button> </td>
-                        </tr>
-                  <% } %>
+                        <% let a = 1 %>
+                        <% for(key in data){ %>
+                            <% let str = data[key].split('/') %>
+                                <tr>
+                                    <form method="post" action="/main/update_process">
+                                        <th scope="row"><%= str[0] %></th>
+                                        <td name="run_process_name"> <%= str[1] %></td>
+                                        <td> <%= str[2] %></td>
+                                            <input type="text" class="form-control" id="recipientname" name="process_name" value="<%= str[1] %>" style="display: none;">
+                                            <td style="text-align: center;"> <input type="submit" class="btn btn-outline-success" id="run_process_btn" value="실행"></input> </td>
+                                    </form>
+                                </tr>
+                        <% } %>
                 </tbody>
               </table>
             </div>

@@ -50,7 +50,6 @@ async function add_process_rule(id,rule_json){
   let process = rule_json.policy_num +"/" +rule_json.process_name +"/"+ rule_json.process_policy;
 
   process_rule_tables[rule_json.policy_num] = process;
-  updateNoti.updateNoti(id,2);
   const res = await processRef.set({
       process_rule_tables
       }, { merge: true });

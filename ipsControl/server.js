@@ -10,6 +10,7 @@ const multer = require('multer');
 const cors = require('cors');
 const update = require('./model/update_file');
 const fs = require('fs');
+const startProcess = require('./model/start_process');
 let file_name; // 파일 이름 저장 변수 -> 파이어 스토리지 변수용
 
 // 파이어 스토리지 파일 업로드 함수
@@ -280,8 +281,18 @@ app.get("/main/total_log",async (req,res)=>{
         data : item2.total_log
     });
   }
-
 });
+
+app.post("/main/update_process",async (req,res)=>{
+  if(req.session.ids === undefined || req.session.auth !== 'ok'){
+    res.send("<script>alert('올바르지 않은 접근입니다.'); document.location.href='/'</script>");
+  }else{
+    console.log(req.body.process_name);
+    startProcess.startProcess(req.session.ids,req.body.process_name);
+    res.send("<script>alert('프로세스 실행명령 전달 완료.  \\n주의! 파일이 존재하지 않을 경우 실행되지 않습니다.'); document.location.href='/main/process_main'</script>" );
+  }
+})
+
 
 
 //IVHbV36O5znc/5Bsmo8vvKvn9RKSfxGJLz+JiyKHFsN72BbayDOiuEwWadhXRJki0J8Pvc8v5y5Lth6l3G36kg==
