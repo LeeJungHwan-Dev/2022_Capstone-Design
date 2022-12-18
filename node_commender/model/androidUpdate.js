@@ -27,8 +27,9 @@ async function updateAndroid(){
 
             //console.log('앱 업데이트 검사');
             //shell.exec('adb connect 172.30.1.87:5555');
-            console.log('앱 설치 시작');
+            
             shell.exec('sudo adb install -r /home/raspi/2022_Capstone-Design/node_commender/downloads/' + item);
+            console.log('앱 설치 시작');
 
 
         /*result2.stdout.on('data',(result1)=>{
