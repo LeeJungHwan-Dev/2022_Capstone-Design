@@ -23,10 +23,11 @@ async function updateAndroid(){
 
         result1.stdout.on('data',(result1)=>{
             console.log('다운로드 완료.');
+            })
+
             console.log('앱 업데이트 검사');
             shell.exec('adb connect 172.30.1.87:5555');
             shell.exec('adb install -r ./downloads/' + item);
-            })
 
 
         /*result2.stdout.on('data',(result1)=>{
