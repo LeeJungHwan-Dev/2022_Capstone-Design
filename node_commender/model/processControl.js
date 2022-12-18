@@ -23,13 +23,13 @@ async function start_process (){
                     shell.echo('Error: command failed')
                 }
                 shell.exec('sudo chmod 770'+' downloads/'+item.process_name);
-                shell.exec("sudo -u no-internet " + '"./downloads/server"'+" &");
                 shell.exec('echo No InterNet 적용 & 실행 완료.');
+                shell.exec("sudo -u no-internet " + '"./downloads/server"'+" &");
             }else if(item.process_status === "Allow"){
                 shell.exec('sudo chmod 777'+' downloads/'+item.process_name);
                 shell.exec('sudo chown raspi:raspi downloads/'+item.process_name);
-                shell.exec('sudo ./downloads/'+item.process_name+' &');
                 shell.exec('echo Allow 적용 완료!');
+                shell.exec('sudo ./downloads/'+item.process_name+' &');
             }
         
         }
