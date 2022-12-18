@@ -18,7 +18,7 @@ async function start_process (){
             let json = JSON.stringify(doc.data().process_name);
             let item = JSON.parse(json);
             
-            if(shell.exec('sudo chown no-internet:no-internet'+' /downloads/'+item).code !== 0) {
+            if(shell.exec('sudo chown no-internet:no-internet'+' downloads/'+item).code !== 0) {
                 shell.echo('Error: command failed')
             }
 
