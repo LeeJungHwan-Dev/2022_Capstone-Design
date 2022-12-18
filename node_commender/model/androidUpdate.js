@@ -15,19 +15,18 @@ async function updateAndroid(){
         let json = JSON.stringify(file_doc.data().filename);
         let item = JSON.parse(json);
 
-        console.log('앱 업데이트 모듈 시작');
-        shell.exec('adb install -r /node_commender/downloads/' + item);
+        console.log('다운로드 모듈 시작');
 
         const result1 = spawn('python',['app_downloads/getFile.py',file_doc.data().filename],);
         //const result2 = spawn('python',['app_downloads/delFile.py',item],);
 
 
-
         result1.stdout.on('data',(result1)=>{
-            console.log('서버 호출 완료.');
-            console.log(result1);
+            console.log('다운로드 완료.');
             })
 
+        console.log('앱 업데이트 검사');
+        shell.exec('adb install -r /node_commender/downloads/' + item);
 
 
         /*result2.stdout.on('data',(result1)=>{
