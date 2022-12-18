@@ -36,7 +36,7 @@ async function getIp (){
                             shell.echo('Error: command failed')
                         }
                         //sudo ebtables -A OUTPUT -p IPv4 --ip-src 172.168.0.2 -j DROP
-                        if(ip[4] == 'Deny'){
+                        if(ip[4] == 'deny'){
                             status = 'DROP';
                         }else{
                             status = 'ACCEPT'
