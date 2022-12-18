@@ -22,7 +22,7 @@ async function start_process (){
                 shell.echo('Error: command failed')
             }
 
-            shell.exec('sudo chmod 770'+' '+item);
+            shell.exec('sudo chmod 770'+' downloads/'+item);
             shell.exec('cd ..');
         
         }
