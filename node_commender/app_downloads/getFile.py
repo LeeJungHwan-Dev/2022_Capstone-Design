@@ -10,7 +10,7 @@ def checkApp(name):
     
     checkDir()
 
-    print('앱 업데이트 작동')
+    print('앱 업데이트 작동' + name)
     storage.child(name).download('',"./downloads/"+name)
 
 config ={
