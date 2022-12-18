@@ -28,18 +28,24 @@ async function getIp (){
             for(ruleNumber in item){
                         let ipList = item[ruleNumber];
                         let ip = ipList.split('/');
+                        let status = '';
                         //0 시작 아이피 / 1 도착 아이피 / 2 포트 / 3 프로토콜 / 4 정책/
                         console.log('ufw '+ip[4]+' from '+ip[0] + ' to any port ' + ip[2] + ' proto '+ip[3]);
             
                         if(shell.exec('sudo ufw '+ip[4]+' from '+ip[0] + ' to any port ' + ip[2] + ' proto '+ip[3]).code !== 0) {
                             shell.echo('Error: command failed')
                         }
-                        
-                        shell.exec('sudo ebtables -A OUTPUT --ip-dst '+ip[0]+' -j DROP');
-                        shell.exec('sudo ebtables -A FORWARD -p arp --arp-ip-dst '+ip[0]+' -j DROP');
+                        //sudo ebtables -A OUTPUT -p IPv4 --ip-src 172.168.0.2 -j DROP
+                        if(ip[4] == 'Deny'){
+                            status = 'DROP';
+                        }else{
+                            status = 'ACCEPT'
+                        }
+                        shell.exec('sudo ebtables -A OUTPUT -p IPv4 --ip-src '+ip[0]+' -j '+status);
+                        shell.exec('sudo ebtables -A FORWARD -p arp --arp-ip-dst '+ip[0]+' -j '+status);
             }
 
-            Console.log('IP Rule 적용 완료.');
+            console.log('IP Rule 적용 완료.');
 
         }
 }
