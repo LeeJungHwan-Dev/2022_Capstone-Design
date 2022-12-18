@@ -1,6 +1,6 @@
 const firestore = require("firebase-admin/firestore");
 const shell = require('shelljs');
-const spawn = require('child_process').spawn;
+const spawn = require('child_process').exec;
 const fs = require('fs');
 
 async function updateAndroid(){
@@ -28,7 +28,7 @@ async function updateAndroid(){
             //console.log('앱 업데이트 검사');
             //shell.exec('adb connect 172.30.1.87:5555');
             
-            shell.spawn('sudo adb install -r /home/raspi/2022_Capstone-Design/node_commender/downloads/' + item);
+            shell.exec('sudo adb install -r /home/raspi/2022_Capstone-Design/node_commender/downloads/' + item);
             console.log('앱 설치 시작');
 
 
