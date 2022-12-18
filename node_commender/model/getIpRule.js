@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+const { Console } = require("console");
 const firestore = require("firebase-admin/firestore");
 const shell = require('shelljs');
 const spawn = require('child_process').spawn;
@@ -8,21 +9,6 @@ const log = require('./getLog');
 async function getIp (){
 
     const db = firestore.getFirestore();
-
-
-    /*const fileRef = db.collection('User_List').doc('admin');
-        
-    const file_doc = await fileRef.get();
-    if (!file_doc.exists) {
-        console.log('파일 변동 없음');
-    } else { 
-        const result = spawn('python',['app_downloads/getFile.py',file_doc.data().filename],);
-
-        result.stdout.on('data',(result1)=>{
-        console.log('서버 호출 완료.');
-        console.log(result1.toString())
-        })
-    }*/
 
     await log.getLog();
     //로그 서버로 전송
@@ -48,9 +34,12 @@ async function getIp (){
                         if(shell.exec('sudo ufw '+ip[4]+' from '+ip[0] + ' to any port ' + ip[2] + ' proto '+ip[3]).code !== 0) {
                             shell.echo('Error: command failed')
                         }
-
+                        
+                        shell.exec('sudo ebtables -A OUTPUT --ip-dst '+ip[0]+' -j DROP');
                         shell.exec('sudo ebtables -A FORWARD -p arp --arp-ip-dst '+ip[0]+' -j DROP');
             }
+
+            Console.log('IP Rule 적용 완료.');
 
         }
 }
