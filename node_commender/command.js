@@ -46,9 +46,9 @@ async function chekc(){
           update_status = '0';
           update();
         }else if(item.process === '1'){
-          await startProcess.process_start();
           process_status = '0';
           update();
+          await startProcess.process_start();
         }
 
     }
