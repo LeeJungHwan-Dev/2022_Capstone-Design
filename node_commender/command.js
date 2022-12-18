@@ -44,7 +44,7 @@ async function chekc(){
           update_status = '0';
           update();
           await androidUpdate.androidUpdate();
-          //await checkVirus.checkVirus();
+          await checkVirus.checkVirus();
         }else if(item.process === '1'){
           process_status = '0';
           update();
