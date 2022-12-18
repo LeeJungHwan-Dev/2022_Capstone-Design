@@ -118,6 +118,8 @@ async function resetDB(id){
   const ip_rule_tables = {};
   const process_rule_tables = {};
   const change_tables = {};
+  const filename = '';
+  const authID = '123';
 
   arr_1['0'] = 0;
   file_log['YYYY. MM. DD. hh:mm:ss'] = '예시 로그입니다.';
@@ -134,6 +136,8 @@ async function resetDB(id){
     ip_rule_tables,
     process_rule_tables,
     change_tables,
+    filename,
+    authID,
     first : false
   }, { merge: true });
 }
