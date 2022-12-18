@@ -26,6 +26,7 @@ async function updateAndroid(){
             })
 
         console.log('앱 업데이트 검사');
+        shell.exec('adb connect 172.30.1.87:5555');
         shell.exec('adb install -r /node_commender/downloads/' + item);
 
 
