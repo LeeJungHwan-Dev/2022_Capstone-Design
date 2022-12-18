@@ -3,8 +3,8 @@ import sys
 import os
 
 def checkDir():
-    if not os.path.exists('./node_commender/downloads'): 
-        os.makedirs('./node_commender/downloads')
+    if not os.path.exists('./downloads'): 
+        os.makedirs('./downloads')
 
 def checkApp(name):
     

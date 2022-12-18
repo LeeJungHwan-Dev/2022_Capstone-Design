@@ -3,7 +3,7 @@ const firestore = require("firebase-admin/firestore");
 async function add_log(data){
 
   if(data != undefined){
-      const db = firestore.getFirestore(data);
+      const db = firestore.getFirestore();
 
 
       const total_log = {};

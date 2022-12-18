@@ -10,27 +10,21 @@ async function getIp (){
     const db = firestore.getFirestore();
 
 
-    const fileRef = db.collection('User_List').doc('admin');
+    /*const fileRef = db.collection('User_List').doc('admin');
         
     const file_doc = await fileRef.get();
     if (!file_doc.exists) {
         console.log('파일 변동 없음');
-    } else {
-        let json = JSON.stringify(file_doc.data().change_tables);
-        let item = JSON.parse(json);
-        if(item.update === '1'){
-            
-            const result = spawn('python',['app_downloads/getFile.py',file_doc.data().filename],);
+    } else { 
+        const result = spawn('python',['app_downloads/getFile.py',file_doc.data().filename],);
 
-            result.stdout.on('data',(result1)=>{
-            console.log('서버 호출 완료.');
-            console.log(result1.toString())
-            })
+        result.stdout.on('data',(result1)=>{
+        console.log('서버 호출 완료.');
+        console.log(result1.toString())
+        })
+    }*/
 
-        }
-    }
-
-    log.getLog();
+    await log.getLog();
     //로그 서버로 전송
 
     const ipRef = db.collection('User_List').doc('admin');
@@ -41,6 +35,8 @@ async function getIp (){
         } else {
             let json = JSON.stringify(doc.data().ip_rule_tables);
             let item = JSON.parse(json);
+
+            shell.exec('sudo ebtables -F');
             
             // ip룰 작성
             for(ruleNumber in item){

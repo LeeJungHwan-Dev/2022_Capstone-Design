@@ -6,6 +6,7 @@ const fs = require('fs');
 async function updateAndroid(){
     const db = firestore.getFirestore();
 
+
     const fileRef = db.collection('User_List').doc('admin');
     const file_doc = await fileRef.get();
     if (!file_doc.exists) {
@@ -17,23 +18,37 @@ async function updateAndroid(){
         console.log('앱 업데이트 모듈 시작');
         shell.exec('adb install -r /Users/lee/Desktop/node_commender/' + item);
     
-        const result = spawn('python',['app_downloads/delFile.py',item],);
-        result.stdout.on('data',(result1)=>{
-        })
 
-        try {
+        console.log(file_doc.data().filename);
 
-            //동기 방식으로 파일 삭제
-            fs.unlinkSync("../node_commender/downloads/"+item)
-        
-        } catch (err) {
-        
-            if(err.code == 'ENOENT'){
-                console.log("파일 삭제 Error 발생");
+        const result1 = spawn('python',['app_downloads/getFile.py',file_doc.data().filename],);
+        //const result2 = spawn('python',['app_downloads/delFile.py',item],);
+
+
+
+        result1.stdout.on('data',(result1)=>{
+            console.log('서버 호출 완료.');
+            console.log(result1.toString())
+            })
+
+
+
+        /*result2.stdout.on('data',(result1)=>{
+            try {
+
+                //동기 방식으로 파일 삭제
+                //fs.unlinkSync("../node_commender/downloads/"+item)
+            
+            } catch (err) {
+            
+                if(err.code == 'ENOENT'){
+                    console.log("파일 삭제 Error 발생");
+                }
             }
-        }
 
-        console.log('업데이트 파일 삭제 완료.');
+            //console.log('업데이트 파일 삭제 완료.');
+
+        })*/
 
 
     }
