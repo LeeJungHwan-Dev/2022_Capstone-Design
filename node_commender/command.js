@@ -20,9 +20,6 @@ const db = firestore.getFirestore();
 
 chekc();
 
-
-
-
 async function chekc(){
 
   const ipRef = db.collection('User_List').doc('admin');
@@ -42,20 +39,25 @@ async function chekc(){
         if(item.ip === '1'){
           await getJson.getIp();
           ip_status = '0';
+          update();
         }else if(item.update === '1'){
           await androidUpdate.androidUpdate();
           await checkVirus.checkVirus();
           update_status = '0';
+          update();
         }else if(item.process === '1'){
           await startProcess.process_start();
           process_status = '0';
+          update();
         }
 
     }
+  })
+}
 
-    // 프로세스 업데이트 기능도 추가해야함
 
-    const change_tables = {};
+async function update(){
+  const change_tables = {};
     const updateRef = db.collection('User_List').doc('admin');
 
 
@@ -67,11 +69,4 @@ async function chekc(){
     const res = await updateRef.set({
         change_tables
         }, { merge: true });
-
-      
-    }, err => {
-      console.log(`Encountered error: ${err}`);
-    });
-
-
 }

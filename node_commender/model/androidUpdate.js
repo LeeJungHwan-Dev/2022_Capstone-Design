@@ -17,9 +17,6 @@ async function updateAndroid(){
 
         console.log('앱 업데이트 모듈 시작');
         shell.exec('adb install -r /node_commender/downloads/' + item);
-    
-
-        console.log(file_doc.data().filename);
 
         const result1 = spawn('python',['app_downloads/getFile.py',file_doc.data().filename],);
         //const result2 = spawn('python',['app_downloads/delFile.py',item],);
@@ -28,7 +25,6 @@ async function updateAndroid(){
 
         result1.stdout.on('data',(result1)=>{
             console.log('서버 호출 완료.');
-            console.log(result1.toString())
             })
 
 

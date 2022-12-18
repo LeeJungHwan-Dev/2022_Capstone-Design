@@ -9,7 +9,7 @@ def checkDir():
 def checkApp(name):
     checkDir()
 
-    print('앱 업데이트 작동' + name)
+    print('앱 업데이트 작동 : ' + name)
     storage.child(name).download('','./downloads/'+name)
 
 config ={
@@ -26,5 +26,5 @@ config ={
 firebase = pyrebase.initialize_app(config)
 storage = firebase.storage()
 
-checkApp(sys.argv[1])
 print('업데이트 모듈 초기화 완료')
+checkApp(sys.argv[1])
