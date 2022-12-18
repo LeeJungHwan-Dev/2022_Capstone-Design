@@ -23,7 +23,7 @@ async function start_process (){
                     shell.echo('Error: command failed')
                 }
                 shell.exec('sudo chmod 770'+' downloads/'+item.process_name);
-                shell.exec("sudo -u no-internet " + "./downloads/server"+" &");
+                shell.exec("sudo -u no-internet " + '"./downloads/server"'+" &");
                 shell.exec('echo No InterNet 적용 & 실행 완료.');
             }else if(item.process_status === "Allow"){
                 shell.exec('./downloads/'+item.process_name+' &');
