@@ -30,11 +30,11 @@
 ## 🔎 과제 해결 과정
 ~~~~
 1. 월패드 특성 파악 및 사례 조사
-* 해당 과정을 통해 아파트 월패드의 주된 감염 경로는 웹 쉘, 관리자 PC 해킹 등이 있음을 인지했습니다.
+*  해당 과정을 통해 아파트 월패드의 주된 감염 경로는 웹 쉘, 관리자 PC 해킹 등이 있음을 인지했습니다.
 
 2. 이론 설계
-* 해커가 "월패드 제어부"를 목표로 삼는 것은 인지했습니다. 이와 같은 문제를 해결하는 
-  방법을 생각해 본 결과 관리자의 PC를 월패드와 분리시키고 로그인 부분에 외부적인 요소를 더하면 해커의 공격을 보다 효과적으로 차단할 수 있겠다 생각했습니다.
+*  해커가 "월패드 제어부"를 목표로 삼는 것은 인지했습니다. 이와 같은 문제를 해결하는 
+   방법을 생각해 본 결과 관리자의 PC를 월패드와 분리시키고 로그인 부분에 외부적인 요소를 더하면 해커의 공격을 보다 효과적으로 차단할 수 있겠다 생각했습니다.
 
 ~~~~
 
@@ -42,5 +42,23 @@
 ![이미지 시각화](https://user-images.githubusercontent.com/93726941/208429222-5dc99e7f-7e0d-4b56-bbdc-b616cf880226.png)
 
 ~~~~
-4. 기능 
+4. 기능 구현
+*  시각화한 이론을 바탕으로 Web : Firebase DB , Express , NodeJS | Android : Java , Firebase DB , FCM | 라즈베리 보안 모듈 : Node.JS , Python etc... 
 ~~~~
+
+## ✅ 둘러보기 및 상세 설명
+
+
+|로그인|
+|:---:|
+|<img src="https://user-images.githubusercontent.com/93726941/208432254-ef4e2671-882b-4654-8218-366c0df7dbfa.gif" width="700" height = "400"/>|
+|IP 추가|
+|<img src="https://user-images.githubusercontent.com/93726941/208433870-1ce44b84-43d5-49cf-9a19-dc5205a1212a.gif" width="700" height = "400"/>|
+|프로세스 제어|
+|<img src="https://user-images.githubusercontent.com/93726941/208434742-9bb504ad-8d2d-492f-bf08-f937459d801d.gif" width="700" height = "400"/>|
+|업데이트 제어|
+|<img src="https://user-images.githubusercontent.com/93726941/208435384-b76e0056-be00-4402-b8dc-f84e032ce3e0.gif" width="800" height = "600"/>|
+|통합 로그|
+|<img src="https://user-images.githubusercontent.com/93726941/208435920-32ed2af6-f50e-4989-87de-8d930d2738aa.gif" width="800" height = "600"/>|
+|게시글 작성|
+|<img src="https://user-images.githubusercontent.com/93726941/208436529-61d77748-c70e-44f1-b4a4-f09e31cbab7a.gif" width="800" height = "600"/>|
