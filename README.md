@@ -1,5 +1,5 @@
 # ⭐️ 2022_Capstone-Design
-* Start : 2022 / 09 ~ End : 2022 / 12
+* Start : 2022 / 09 ~ Ing : ~
 * OS : MacOS Ventura 13.1 / Raspberry Pi OS 32bit
 * Node.Js ver : v18.11.0
 * Python ver : 3.8.10
