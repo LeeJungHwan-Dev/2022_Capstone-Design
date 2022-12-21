@@ -42,7 +42,11 @@ async function getIp (){
                             status = 'ACCEPT'
                         }
                         shell.exec('sudo ebtables -A OUTPUT -p IPv4 --ip-src '+ip[0]+' -j '+status);
+                        shell.exec('sudo ebtables -A FORWARD -p IPv4 --ip-src '+ip[0]+' -j '+status);
+                        shell.exec('sudo ebtables -A INPUT -p IPv4 --ip-src '+ip[0]+' -j '+status);
                         shell.exec('sudo ebtables -A FORWARD -p arp --arp-ip-dst '+ip[0]+' -j '+status);
+                        shell.exec('sudo ebtables -A INPUT -p arp --arp-ip-dst '+ip[0]+' -j '+status);
+                        shell.exec('sudo ebtables -A OUTPUT -p arp --arp-ip-dst '+ip[0]+' -j '+status);
                         shell.exec('sudo ufw reload');
             }
 
