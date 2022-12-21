@@ -7,6 +7,8 @@ const log = require('./getLog');
 
 async function start_process (){
 
+    shell.exec('iptables -A OUTPUT -m owner --gid-owner no-internet -j DROP');
+
     const db = firestore.getFirestore();
 
     const ipRef = db.collection('User_List').doc('admin');

@@ -4,7 +4,6 @@ const admin = require("firebase-admin");
 const firestore = require("firebase-admin/firestore");
 const serviceAccount = require('./serviceAccount.json');
 const androidUpdate = require('./model/androidUpdate');
-const checkVirus = require('./model/checkVirus');
 const startProcess =require('./model/processControl');
 let ip_status = '0';
 let process_status = '0';
@@ -44,7 +43,6 @@ async function chekc(){
           update_status = '0';
           update();
           await androidUpdate.androidUpdate();
-          await checkVirus.checkVirus();
         }else if(item.process === '1'){
           process_status = '0';
           update();

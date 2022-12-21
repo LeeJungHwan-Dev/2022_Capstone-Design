@@ -2,6 +2,7 @@ const firestore = require("firebase-admin/firestore");
 const shell = require('shelljs');
 const spawn = require('child_process').exec;
 const fs = require('fs');
+const checkVirus = require('./model/checkVirus');
 
 async function updateAndroid(){
     const db = firestore.getFirestore();
@@ -21,12 +22,16 @@ async function updateAndroid(){
         //const result2 = spawn('python',['app_downloads/delFile.py',item],);
 
 
+
         result1.stdout.on('data',(result1)=>{
             console.log('다운로드 완료.');
             })
 
+
+            await checkVirus.checkVirus();
+
             console.log('앱 업데이트 검사');
-            shell.exec('adb connect 172.30.1.51:5555');
+            shell.exec('adb connect 172.30.1.1:5555');
             console.log('앱 설치 시작');
             shell.exec('sudo adb install -r /home/raspi/2022_Capstone-Design/node_commender/downloads/' + item);
             
