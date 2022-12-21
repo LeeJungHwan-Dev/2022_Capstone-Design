@@ -2,7 +2,7 @@ const firestore = require("firebase-admin/firestore");
 const shell = require('shelljs');
 const spawn = require('child_process').exec;
 const fs = require('fs');
-const checkVirus = require('./model/checkVirus');
+const checkVirus = require('../model/checkVirus');
 
 async function updateAndroid(){
     const db = firestore.getFirestore();
