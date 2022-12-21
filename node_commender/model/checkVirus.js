@@ -2,7 +2,7 @@ const shell = require('shelljs');
 
 function checkVirus(){
     console.log("Virus Check start");
-    shell.exec('clamscan -r ./downloads --move=/virus');
+    shell.exec('sudo clamscan -r ./downloads --move=/virus');
     console.log('Virus Ok');
 }
 
