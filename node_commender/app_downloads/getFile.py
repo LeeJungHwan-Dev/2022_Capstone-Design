@@ -8,7 +8,7 @@ def checkDir():
 
 def checkApp(name):
     checkDir()
-
+    print(name);
     storage.child(name).download('','./downloads/'+name)
 
 config ={
