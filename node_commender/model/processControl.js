@@ -7,11 +7,11 @@ const log = require('./getLog');
 
 async function start_process (){
 
-    shell.exec('sudo iptables -A OUTPUT -m owner --gid-owner no-internet -j DROP');
-
     const db = firestore.getFirestore();
 
     const ipRef = db.collection('User_List').doc('admin');
+
+        console.log('프로세스 정책 감지!');
         
         const doc = await ipRef.get();
         if (!doc.exists) {
