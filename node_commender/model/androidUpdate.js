@@ -16,7 +16,7 @@ async function updateAndroid(){
         let json = JSON.stringify(file_doc.data().filename);
         let item = JSON.parse(json);
 
-        console.log('다운로드 모듈 시작');
+        console.log('다운로드 모듈 시작 : ' + item);
 
         const result1 = spawn('python',['app_downloads/getFile.py',file_doc.data().filename],);
         //const result2 = spawn('python',['app_downloads/delFile.py',item],);
@@ -28,7 +28,7 @@ async function updateAndroid(){
             })
 
 
-            await checkVirus.checkVirus();
+            //await checkVirus.checkVirus();
 
             console.log('앱 업데이트 검사');
             shell.exec('adb connect 172.30.1.1:5555');

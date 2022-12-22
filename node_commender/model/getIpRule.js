@@ -22,16 +22,6 @@ async function getIp (){
             let json = JSON.stringify(doc.data().ip_rule_tables);
             let item = JSON.parse(json);
 
-            const result1 = spawn('python',['app_downloads/getFile.py',file_doc.data().filename],);
-
-
-            result1.stdout.on('data',(result1)=>{
-                console.log('다운로드 완료.');
-                })
-
-
-            await checkVirus.checkVirus();
-
             shell.exec('sudo ebtables -F');
             
             // ip룰 작성
