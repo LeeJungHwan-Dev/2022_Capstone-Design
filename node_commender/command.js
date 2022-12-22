@@ -4,7 +4,6 @@ const admin = require("firebase-admin");
 const firestore = require("firebase-admin/firestore");
 const serviceAccount = require('./serviceAccount.json');
 const androidUpdate = require('./model/androidUpdate');
-const checkVirus = require('./model/checkVirus');
 const startProcess =require('./model/processControl');
 let ip_status = '0';
 let process_status = '0';
@@ -37,14 +36,13 @@ async function chekc(){
         update_process = item.update;
 
         if(item.ip === '1'){
-          await getJson.getIp();
           ip_status = '0';
           update();
+          await getJson.getIp();
         }else if(item.update === '1'){
-          await androidUpdate.androidUpdate();
-          await checkVirus.checkVirus();
           update_status = '0';
           update();
+          await androidUpdate.androidUpdate();
         }else if(item.process === '1'){
           process_status = '0';
           update();

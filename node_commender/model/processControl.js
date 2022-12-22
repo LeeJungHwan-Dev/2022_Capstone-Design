@@ -10,6 +10,8 @@ async function start_process (){
     const db = firestore.getFirestore();
 
     const ipRef = db.collection('User_List').doc('admin');
+
+        console.log('프로세스 정책 감지!');
         
         const doc = await ipRef.get();
         if (!doc.exists) {
