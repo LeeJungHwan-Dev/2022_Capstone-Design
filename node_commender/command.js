@@ -44,9 +44,9 @@ async function chekc(){
           update();
           await androidUpdate.androidUpdate();
         }else if(item.process === '1'){
+          await startProcess.process_start();
           process_status = '0';
           update();
-          await startProcess.process_start();
         }
 
     }
