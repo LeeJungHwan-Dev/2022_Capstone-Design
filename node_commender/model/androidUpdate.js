@@ -18,7 +18,7 @@ async function updateAndroid(){
 
         console.log('다운로드 모듈 시작 : ' + item);
 
-        const result1 = spawn('python',['app_downloads/getFile.py',file_doc.data().filename],);
+        const result1 = spawn('python',['app_downloads/getFile.py',item],);
         //const result2 = spawn('python',['app_downloads/delFile.py',item],);
 
 
