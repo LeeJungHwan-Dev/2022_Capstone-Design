@@ -44,7 +44,10 @@
 
 ~~~~
 4. 기능 구현
-*  시각화한 이론을 바탕으로 Web : Firebase DB , Express , NodeJS | Android : Java , Firebase DB , FCM | 라즈베리 보안 모듈 : Node.JS , Python etc... 
+* 시각화한 이론을 바탕으로
+* Web : Firebase DB , Express , NodeJS
+* Android : Java , Firebase DB , FCM
+* 라즈베리 보안 모듈 : Node.JS , Python
 ~~~~
 
 ## ✅ 둘러보기 및 상세 설명
